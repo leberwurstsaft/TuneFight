@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7338D2D412E0FE5300F10429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7338D2D312E0FE5300F10429 /* UIKit.framework */; };
+		7338D2D612E0FE5300F10429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7338D2D512E0FE5300F10429 /* Foundation.framework */; };
+		7338D2D812E0FE5300F10429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7338D2D712E0FE5300F10429 /* CoreGraphics.framework */; };
+		7338D2DE12E0FE5300F10429 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7338D2DC12E0FE5300F10429 /* InfoPlist.strings */; };
+		7338D2E112E0FE5300F10429 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7338D2E012E0FE5300F10429 /* main.m */; };
+		7338D2E412E0FE5300F10429 /* TuneFightAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7338D2E312E0FE5300F10429 /* TuneFightAppDelegate.m */; };
+		7338D2E812E0FE5400F10429 /* TuneFightAppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 7338D2E712E0FE5400F10429 /* TuneFightAppDelegate_iPhone.m */; };
+		7338D2EB12E0FE5400F10429 /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7338D2E912E0FE5400F10429 /* MainWindow_iPhone.xib */; };
+		7338D2EF12E0FE5400F10429 /* TuneFightAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 7338D2EE12E0FE5400F10429 /* TuneFightAppDelegate_iPad.m */; };
+		7338D2F212E0FE5400F10429 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7338D2F012E0FE5400F10429 /* MainWindow_iPad.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7338D2CF12E0FE5300F10429 /* TuneFight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuneFight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7338D2D312E0FE5300F10429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7338D2D512E0FE5300F10429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7338D2D712E0FE5300F10429 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7338D2DB12E0FE5300F10429 /* TuneFight-Info.plist */ = {isa = PBXFileReference; path = "TuneFight-Info.plist"; sourceTree = "<group>"; };
+		7338D2DD12E0FE5300F10429 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7338D2DF12E0FE5300F10429 /* TuneFight-Prefix.pch */ = {isa = PBXFileReference; path = "TuneFight-Prefix.pch"; sourceTree = "<group>"; };
+		7338D2E012E0FE5300F10429 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7338D2E212E0FE5300F10429 /* TuneFightAppDelegate.h */ = {isa = PBXFileReference; path = TuneFightAppDelegate.h; sourceTree = "<group>"; };
+		7338D2E312E0FE5300F10429 /* TuneFightAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TuneFightAppDelegate.m; sourceTree = "<group>"; };
+		7338D2E612E0FE5400F10429 /* TuneFightAppDelegate_iPhone.h */ = {isa = PBXFileReference; name = TuneFightAppDelegate_iPhone.h; path = iPhone/TuneFightAppDelegate_iPhone.h; sourceTree = "<group>"; };
+		7338D2E712E0FE5400F10429 /* TuneFightAppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TuneFightAppDelegate_iPhone.m; path = iPhone/TuneFightAppDelegate_iPhone.m; sourceTree = "<group>"; };
+		7338D2EA12E0FE5400F10429 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		7338D2ED12E0FE5400F10429 /* TuneFightAppDelegate_iPad.h */ = {isa = PBXFileReference; name = TuneFightAppDelegate_iPad.h; path = iPad/TuneFightAppDelegate_iPad.h; sourceTree = "<group>"; };
+		7338D2EE12E0FE5400F10429 /* TuneFightAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TuneFightAppDelegate_iPad.m; path = iPad/TuneFightAppDelegate_iPad.m; sourceTree = "<group>"; };
+		7338D2F112E0FE5400F10429 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7338D2CC12E0FE5300F10429 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7338D2D412E0FE5300F10429 /* UIKit.framework in Frameworks */,
+				7338D2D612E0FE5300F10429 /* Foundation.framework in Frameworks */,
+				7338D2D812E0FE5300F10429 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7338D2C412E0FE5300F10429 = {
+			isa = PBXGroup;
+			children = (
+				7338D2D912E0FE5300F10429 /* TuneFight */,
+				7338D2D212E0FE5300F10429 /* Frameworks */,
+				7338D2D012E0FE5300F10429 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7338D2D012E0FE5300F10429 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7338D2CF12E0FE5300F10429 /* TuneFight.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7338D2D212E0FE5300F10429 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7338D2D312E0FE5300F10429 /* UIKit.framework */,
+				7338D2D512E0FE5300F10429 /* Foundation.framework */,
+				7338D2D712E0FE5300F10429 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7338D2D912E0FE5300F10429 /* TuneFight */ = {
+			isa = PBXGroup;
+			children = (
+				7338D2E212E0FE5300F10429 /* TuneFightAppDelegate.h */,
+				7338D2E312E0FE5300F10429 /* TuneFightAppDelegate.m */,
+				7338D2E512E0FE5400F10429 /* iPhone */,
+				7338D2EC12E0FE5400F10429 /* iPad */,
+				7338D2DA12E0FE5300F10429 /* Supporting Files */,
+			);
+			path = TuneFight;
+			sourceTree = "<group>";
+		};
+		7338D2DA12E0FE5300F10429 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7338D2DB12E0FE5300F10429 /* TuneFight-Info.plist */,
+				7338D2DC12E0FE5300F10429 /* InfoPlist.strings */,
+				7338D2DF12E0FE5300F10429 /* TuneFight-Prefix.pch */,
+				7338D2E012E0FE5300F10429 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7338D2E512E0FE5400F10429 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				7338D2E612E0FE5400F10429 /* TuneFightAppDelegate_iPhone.h */,
+				7338D2E712E0FE5400F10429 /* TuneFightAppDelegate_iPhone.m */,
+				7338D2E912E0FE5400F10429 /* MainWindow_iPhone.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		7338D2EC12E0FE5400F10429 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				7338D2ED12E0FE5400F10429 /* TuneFightAppDelegate_iPad.h */,
+				7338D2EE12E0FE5400F10429 /* TuneFightAppDelegate_iPad.m */,
+				7338D2F012E0FE5400F10429 /* MainWindow_iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7338D2CE12E0FE5300F10429 /* TuneFight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7338D2F512E0FE5400F10429 /* Build configuration list for PBXNativeTarget "TuneFight" */;
+			buildPhases = (
+				7338D2CB12E0FE5300F10429 /* Sources */,
+				7338D2CC12E0FE5300F10429 /* Frameworks */,
+				7338D2CD12E0FE5300F10429 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TuneFight;
+			productName = TuneFight;
+			productReference = 7338D2CF12E0FE5300F10429 /* TuneFight.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7338D2C612E0FE5300F10429 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 7338D2C912E0FE5300F10429 /* Build configuration list for PBXProject "TuneFight" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7338D2C412E0FE5300F10429;
+			productRefGroup = 7338D2D012E0FE5300F10429 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7338D2CE12E0FE5300F10429 /* TuneFight */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7338D2CD12E0FE5300F10429 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7338D2DE12E0FE5300F10429 /* InfoPlist.strings in Resources */,
+				7338D2EB12E0FE5400F10429 /* MainWindow_iPhone.xib in Resources */,
+				7338D2F212E0FE5400F10429 /* MainWindow_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7338D2CB12E0FE5300F10429 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7338D2E112E0FE5300F10429 /* main.m in Sources */,
+				7338D2E412E0FE5300F10429 /* TuneFightAppDelegate.m in Sources */,
+				7338D2E812E0FE5400F10429 /* TuneFightAppDelegate_iPhone.m in Sources */,
+				7338D2EF12E0FE5400F10429 /* TuneFightAppDelegate_iPad.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7338D2DC12E0FE5300F10429 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7338D2DD12E0FE5300F10429 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		7338D2E912E0FE5400F10429 /* MainWindow_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7338D2EA12E0FE5400F10429 /* en */,
+			);
+			name = MainWindow_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		7338D2F012E0FE5400F10429 /* MainWindow_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7338D2F112E0FE5400F10429 /* en */,
+			);
+			name = MainWindow_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7338D2F312E0FE5400F10429 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7338D2F412E0FE5400F10429 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7338D2F612E0FE5400F10429 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TuneFight/TuneFight-Prefix.pch";
+				INFOPLIST_FILE = "TuneFight/TuneFight-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7338D2F712E0FE5400F10429 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TuneFight/TuneFight-Prefix.pch";
+				INFOPLIST_FILE = "TuneFight/TuneFight-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7338D2C912E0FE5300F10429 /* Build configuration list for PBXProject "TuneFight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7338D2F312E0FE5400F10429 /* Debug */,
+				7338D2F412E0FE5400F10429 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7338D2F512E0FE5400F10429 /* Build configuration list for PBXNativeTarget "TuneFight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7338D2F612E0FE5400F10429 /* Debug */,
+				7338D2F712E0FE5400F10429 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7338D2C612E0FE5300F10429 /* Project object */;
+}
