@@ -7,15 +7,23 @@
 //
 
 #import "TuneFightAppDelegate.h"
+#import "RootViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @implementation TuneFightAppDelegate
 
 
-@synthesize window;
+@synthesize window, viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+	viewController = [[RootViewController alloc] init];
+    
+    [window addSubview:viewController.view];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

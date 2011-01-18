@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@class RootViewController;
+
 @interface TuneFightAppDelegate : NSObject <UIApplicationDelegate> {
-@private
+@private    RootViewController *viewController;
+
 
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain)  UIWindow *window;
+@property (nonatomic, retain)  RootViewController *viewController;
 
 @end
