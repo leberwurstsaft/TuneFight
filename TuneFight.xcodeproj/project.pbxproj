@@ -19,6 +19,7 @@
 		73B783FC12E10C6B00B313C3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B783FB12E10C6B00B313C3 /* CoreMedia.framework */; };
 		73B783FE12E10C6B00B313C3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B783FD12E10C6B00B313C3 /* MediaPlayer.framework */; };
 		73B7840812E10C9900B313C3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B7840712E10C9900B313C3 /* AVFoundation.framework */; };
+		73D92DFC12E6520900A3379C /* PCMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D92DFB12E6520900A3379C /* PCMView.m */; };
 		73DB58FD12E3167800462828 /* HistogramView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DB58FC12E3167800462828 /* HistogramView.m */; };
 		73DB5BF012E387FD00462828 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DB5BEF12E387FD00462828 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -42,6 +43,8 @@
 		73B783FB12E10C6B00B313C3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		73B783FD12E10C6B00B313C3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		73B7840712E10C9900B313C3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		73D92DFA12E6520900A3379C /* PCMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCMView.h; sourceTree = "<group>"; };
+		73D92DFB12E6520900A3379C /* PCMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCMView.m; sourceTree = "<group>"; };
 		73DB58FB12E3167800462828 /* HistogramView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistogramView.h; sourceTree = "<group>"; };
 		73DB58FC12E3167800462828 /* HistogramView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistogramView.m; sourceTree = "<group>"; wrapsLines = 1; };
 		73DB5BEF12E387FD00462828 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -109,6 +112,8 @@
 				7338D2FF12E1038500F10429 /* TuneView.m */,
 				73DB58FB12E3167800462828 /* HistogramView.h */,
 				73DB58FC12E3167800462828 /* HistogramView.m */,
+				73D92DFA12E6520900A3379C /* PCMView.h */,
+				73D92DFB12E6520900A3379C /* PCMView.m */,
 				7338D2DA12E0FE5300F10429 /* Supporting Files */,
 			);
 			path = TuneFight;
@@ -188,6 +193,7 @@
 				7338D2FD12E100EC00F10429 /* RootViewController.m in Sources */,
 				7338D30012E1038500F10429 /* TuneView.m in Sources */,
 				73DB58FD12E3167800462828 /* HistogramView.m in Sources */,
+				73D92DFC12E6520900A3379C /* PCMView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

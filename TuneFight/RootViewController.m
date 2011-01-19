@@ -195,6 +195,21 @@
             freqToBand[j] = (int)(3.0 * (log2(f) - baseline));
         }
         
+        BOOL once = NO;
+        double scaleSamples = 1.0/65536.0;
+        double scaleLevels = 0.333;
+		double addOne = 1.0;
+        double fillWith = 1.0;
+        
+        int len = 8192;
+
+        double real[len] __attribute__ ((aligned (16)));
+        double realScaled[len] __attribute__ ((aligned (16)));
+        double imag[len] __attribute__ ((aligned (16)));
+        double hamm[len] __attribute__ ((aligned (16)));
+
+        vDSP_hamm_windowD(hamm, len, 0);
+
         while (1)
         {
             if ([assetWriterInput isReadyForMoreMediaData]) {
@@ -205,31 +220,28 @@
                     //NSLog(@"buffer: %@", sampleBuffer);
                     //[assetWriterInput appendSampleBuffer:sampleBuffer];
 					sampleCount++;
-                    
+
                     AudioBufferList audioBufferList;
                     CMBlockBufferRef blockBuffer;
                     CMSampleBufferGetAudioBufferListWithRetainedBlockBuffer(sampleBuffer, NULL, &audioBufferList, sizeof(audioBufferList), NULL, NULL, 0, &blockBuffer);
                     
-					int len = audioBufferList.mBuffers[0].mDataByteSize / sizeof(SInt16);
+					len = audioBufferList.mBuffers[0].mDataByteSize / sizeof(SInt16);
                     
-                    double real[len] __attribute__ ((aligned (16)));
-					double realScaled[len] __attribute__ ((aligned (16)));
-					double imag[len] __attribute__ ((aligned (16)));
-					double hamm[len] __attribute__ ((aligned (16)));
-					
 					vDSP_vflt16D(audioBufferList.mBuffers[0].mData, 1, real, 1, len);
                     
-					vDSP_vclrD(imag,  1, len);
-					vDSP_hamm_windowD(hamm, len, 0);
-					vDSP_vclrD(realScaled, 1, len);
-					
+                    vDSP_vclrD(imag,  1, len);
+                    vDSP_vclrD(realScaled, 1, len);
+                    
 					complexData.realp = realScaled;
 					complexData.imagp = imag;
 
 					//scaling
-					double scale = 1.0/65536.0;
-					vDSP_vsmulD(real, 1, &scale, realScaled, 1, len);
-
+					
+					vDSP_vsmulD(real, 1, &scaleSamples, realScaled, 1, len);
+//                    if ((sampleCount % 10) == 0) {
+//                        [aTuneView setPCMData: realScaled];
+//                    }
+                    
 					// windowing
 					vDSP_vmulD(realScaled, 1, hamm, 1, complexData.realp, 1, len);
                     
@@ -237,15 +249,25 @@
 					vDSP_fft_zipD(mFFT, &complexData, 1, (int)log2((double)len), kFFTDirection_Forward);
 					
 					vDSP_zvabsD(&complexData, 1, real, 1, len);
-					double addOne = 1.0;
+
+                    // just add once to the real vector, so we don't run into problems with the dB-conversion
 					vDSP_vsaddD(real, 1, &addOne, real, 1, len);
-					double fillWith = 1.0;
+					
+                    // use imag as help vector, filled with 1's
 					vDSP_vfillD(&fillWith, imag, 1, len);
 					
 					vDSP_vdbconD(real, 1, imag, real, 1, len, 1);
-					scale = 0.3333;
-					vDSP_vsmulD(real, 1, &scale, real, 1, len);
-					
+
+//                    if ((sampleCount % 10) == 0) {
+//                        // draw nice lines and spectrum
+//                        [aTuneView setSpectrumData: real];
+//                        
+//                        [aTuneView performSelectorOnMainThread:@selector(drawPCM) withObject:nil waitUntilDone:NO];
+//                    }
+
+					vDSP_vsmulD(real, 1, &scaleLevels, real, 1, len);
+                    
+                    
 					// !!!: hier irgendwas mit dem spektrum tun
 					
 
