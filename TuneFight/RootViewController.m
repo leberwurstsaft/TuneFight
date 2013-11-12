@@ -291,38 +291,40 @@
                 }
             }
 
+            int count = 40*20;
+            int bytes = 40 * 20 * sizeof(double);
             // normalize by sample count
-            double *originalData = malloc(40 * 20 * sizeof(double));
-            memcpy(originalData, histogramData, 40*20);
+            double *originalData = malloc(bytes);
+            memcpy(originalData, histogramData, count);
 
             LWSBenchBlock("for loop Division                               ", ^{
-                for (int pos = 0; pos < 40 * 20; pos++) {
+                for (int pos = 0; pos < count; pos++) {
                     double normalizedSum = histogramData[pos] / (double)sampleCount;
                     histogramData[pos] = normalizedSum;
                 }
-                memcpy(histogramData, originalData, 40*20);
+                memcpy(histogramData, originalData, bytes);
             }, 100000);
 
 
             LWSBenchBlock("vDSP Division with malloc in benchmark          ", ^{
-                double *resampled = malloc(40 * 20 * sizeof(double));
+                double *resampled = malloc(bytes);
                 const double divisor = sampleCount;
-                vDSP_vsdivD(histogramData, 1, &divisor, resampled, 1, 40*20);
-                memcpy(histogramData, originalData, 40*20);
+                vDSP_vsdivD(histogramData, 1, &divisor, resampled, 1, count);
+                memcpy(histogramData, originalData, bytes);
                 free(resampled);
             }, 100000);
 
-            double *resampled = malloc(40 * 20 * sizeof(double));
+            double *resampled = malloc(bytes);
             LWSBenchBlock("vDSP Division with malloc removed from benchmark", ^{
                 const double divisor = sampleCount;
-                vDSP_vsdivD(histogramData, 1, &divisor, resampled, 1, 40*20);
-                memcpy(histogramData, originalData, 40*20);
+                vDSP_vsdivD(histogramData, 1, &divisor, resampled, 1, count);
+                memcpy(histogramData, originalData, bytes);
             }, 100000);
 
-            resampled = malloc(40 * 20 * sizeof(double));
-            const double divisor = sampleCount;
-            vDSP_vsdivD(histogramData, 1, &divisor, resampled, 1, 40*20);
-            memcpy(histogramData, resampled, 40*20);
+            // perform scaling a last time for the end result :)
+            double divisor = sampleCount;
+            vDSP_vsdivD(histogramData, 1, &divisor, resampled, 1, count);
+            memcpy(histogramData, resampled, bytes);
 
             free(resampled);
 
