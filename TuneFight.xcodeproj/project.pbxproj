@@ -15,6 +15,8 @@
 		7338D2E412E0FE5300F10429 /* TuneFightAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7338D2E312E0FE5300F10429 /* TuneFightAppDelegate.m */; };
 		7338D2FD12E100EC00F10429 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7338D2FC12E100EC00F10429 /* RootViewController.m */; };
 		7338D30012E1038500F10429 /* TuneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7338D2FF12E1038500F10429 /* TuneView.m */; };
+		734CC16A12E7323200E6DF53 /* PCM.png in Resources */ = {isa = PBXBuildFile; fileRef = 734CC16812E7323200E6DF53 /* PCM.png */; };
+		734CC16C12E7343200E6DF53 /* PCM_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 734CC16B12E7343200E6DF53 /* PCM_off.png */; };
 		7376386712E26516009A3A5D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7376386612E26516009A3A5D /* Accelerate.framework */; };
 		73B783FC12E10C6B00B313C3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B783FB12E10C6B00B313C3 /* CoreMedia.framework */; };
 		73B783FE12E10C6B00B313C3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B783FD12E10C6B00B313C3 /* MediaPlayer.framework */; };
@@ -39,6 +41,8 @@
 		7338D2FC12E100EC00F10429 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		7338D2FE12E1038500F10429 /* TuneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuneView.h; sourceTree = "<group>"; };
 		7338D2FF12E1038500F10429 /* TuneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuneView.m; sourceTree = "<group>"; };
+		734CC16812E7323200E6DF53 /* PCM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PCM.png; sourceTree = "<group>"; };
+		734CC16B12E7343200E6DF53 /* PCM_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PCM_off.png; sourceTree = "<group>"; };
 		7376386612E26516009A3A5D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		73B783FB12E10C6B00B313C3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		73B783FD12E10C6B00B313C3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -114,6 +118,8 @@
 				73DB58FC12E3167800462828 /* HistogramView.m */,
 				73D92DFA12E6520900A3379C /* PCMView.h */,
 				73D92DFB12E6520900A3379C /* PCMView.m */,
+				734CC16812E7323200E6DF53 /* PCM.png */,
+				734CC16B12E7343200E6DF53 /* PCM_off.png */,
 				7338D2DA12E0FE5300F10429 /* Supporting Files */,
 			);
 			path = TuneFight;
@@ -155,6 +161,9 @@
 /* Begin PBXProject section */
 		7338D2C612E0FE5300F10429 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 7338D2C912E0FE5300F10429 /* Build configuration list for PBXProject "TuneFight" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -178,6 +187,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7338D2DE12E0FE5300F10429 /* InfoPlist.strings in Resources */,
+				734CC16A12E7323200E6DF53 /* PCM.png in Resources */,
+				734CC16C12E7343200E6DF53 /* PCM_off.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +257,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -255,7 +267,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TuneFight/TuneFight-Prefix.pch";
 				INFOPLIST_FILE = "TuneFight/TuneFight-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
@@ -266,6 +278,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -274,7 +287,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TuneFight/TuneFight-Prefix.pch";
 				INFOPLIST_FILE = "TuneFight/TuneFight-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;

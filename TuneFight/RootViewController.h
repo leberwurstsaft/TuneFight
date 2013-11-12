@@ -12,16 +12,15 @@
 
 @class TuneView;
 
-@interface RootViewController : UIViewController <MPMediaPickerControllerDelegate, UIScrollViewDelegate> {
+@interface RootViewController : UIViewController <MPMediaPickerControllerDelegate, UIScrollViewDelegate>
 
-	NSMutableArray *tuneViews;
-    UIButton *importButton;
-	AVPlayer* player;
-	UIScrollView *scrollView;
-}
+@property (readonly) BOOL visEnabled;
 
 - (BOOL)exportItem:(MPMediaItem *)item;
 - (void)importTuneFromLibrary;
 - (void)playMPItem:(MPMediaItem *)item;
+- (void)toggleVisualizations;
+- (void)updatePlaybackButtons;
+- (void)keepHistogramData:(double *)data forItem:(MPMediaItem *)item;
 
 @end

@@ -9,13 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface PCMView : UIView {
-
-    double * waveform;
-    double * spectrum;
-    
-    bool once;
-}
+@interface PCMView : UIView
 
 - (void)setWaveform:(double *)data;
 - (void)setSpectrum:(double *)data;
