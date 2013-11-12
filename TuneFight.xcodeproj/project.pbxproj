@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		732178071832B90B00995D0F /* BNRTimeBlock.c in Sources */ = {isa = PBXBuildFile; fileRef = 732178051832B90B00995D0F /* BNRTimeBlock.c */; };
 		7338D2D412E0FE5300F10429 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7338D2D312E0FE5300F10429 /* UIKit.framework */; };
 		7338D2D612E0FE5300F10429 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7338D2D512E0FE5300F10429 /* Foundation.framework */; };
 		7338D2D812E0FE5300F10429 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7338D2D712E0FE5300F10429 /* CoreGraphics.framework */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		732178051832B90B00995D0F /* BNRTimeBlock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BNRTimeBlock.c; sourceTree = "<group>"; };
+		732178061832B90B00995D0F /* BNRTimeBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRTimeBlock.h; sourceTree = "<group>"; };
 		7338D2CF12E0FE5300F10429 /* TuneFight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuneFight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7338D2D312E0FE5300F10429 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7338D2D512E0FE5300F10429 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -123,6 +126,8 @@
 				73D92DFB12E6520900A3379C /* PCMView.m */,
 				734CC16812E7323200E6DF53 /* PCM.png */,
 				734CC16B12E7343200E6DF53 /* PCM_off.png */,
+				732178051832B90B00995D0F /* BNRTimeBlock.c */,
+				732178061832B90B00995D0F /* BNRTimeBlock.h */,
 				7338D2DA12E0FE5300F10429 /* Supporting Files */,
 			);
 			path = TuneFight;
@@ -213,6 +218,7 @@
 				7338D2FD12E100EC00F10429 /* RootViewController.m in Sources */,
 				7338D30012E1038500F10429 /* TuneView.m in Sources */,
 				73DB58FD12E3167800462828 /* HistogramView.m in Sources */,
+				732178071832B90B00995D0F /* BNRTimeBlock.c in Sources */,
 				73D92DFC12E6520900A3379C /* PCMView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

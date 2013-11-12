@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "TuneView.h"
+#import "BNRTimeBlock.h"
 #import <AudioToolbox/AudioToolbox.h>
 #include <Accelerate/Accelerate.h>
 
@@ -112,7 +113,7 @@
     [self.tuneViews addObject:aTuneView];
     [self.scrollView addSubview:aTuneView];
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 100 + [self.tuneViews count] * 220)];
-//    [aTuneView enableShadows:NO];
+    //    [aTuneView enableShadows:NO];
 
     if ([self.fileManager fileExistsAtPath:path]) {
         NSLog(@"file %@ exists", path);
@@ -173,16 +174,8 @@
             return NO;
         }
 
-
-
         void (^sampleBlock) (void) = ^{
-            DSPDoubleSplitComplex   complexData;
-
-            double                  *histogramData  = calloc(40 * 20, sizeof(double));
-
-            int                     sampleCount     = 0;
-
-            // log2 table for bucketing frequencies
+            // prepare some buckets for the frequencies, basically calculate some logarithms once as a lookup table
             int     freqToBand[8192];
             double  baseline = log2(10.76);
 
@@ -190,6 +183,13 @@
                 double f = 10.76 * (double)j;
                 freqToBand[j] = (int)(3.0 * (log2(f) - baseline));
             }
+
+            DSPDoubleSplitComplex complexData;
+
+            // 2D histogram, 40 columns by 20 rows
+            double  *histogramData  = calloc(40 * 20, sizeof(double));
+
+            int     sampleCount     = 0;
 
             double  scaleSamples    = 1.0 / 65536.0;
             double  scaleLevels     = 0.333;
@@ -271,12 +271,13 @@
 
                     // !!!: hier etwas tolles mit dem spektrum tun
 
-
+                    //
                     for (int j = 1; j < len; j++) {
-                        double  power   = real[j];
-                        double  value   = histogramData[freqToBand[j] * 20 + (int)power];
+                        int power           = (int)real[j];  // power equals the vertical position in the column, low power is at the bottom
+                        int band            = freqToBand[j]; // band equals the column in the histogram
+                        int linearPosition  = band * 20 + power;
 
-                        histogramData[freqToBand[j] * 20 + (int)power] = value + 1.0;
+                        histogramData[linearPosition] = histogramData[linearPosition] + 1.0;
                     }
 
                     CFRelease(blockBuffer);
@@ -290,12 +291,40 @@
                 }
             }
 
-            for (int band = 0; band < 40; band++) {
-                for (int intensity = 0; intensity < 20; intensity++) {
-                    double normalizedSum = histogramData[band * 20 + intensity] / (double)sampleCount;
-                    histogramData[band * 20 + intensity] = normalizedSum;
+            // normalize by sample count
+            double *originalData = malloc(40 * 20 * sizeof(double));
+            memcpy(originalData, histogramData, 40*20);
+
+            LWSBenchBlock("for loop Division                               ", ^{
+                for (int pos = 0; pos < 40 * 20; pos++) {
+                    double normalizedSum = histogramData[pos] / (double)sampleCount;
+                    histogramData[pos] = normalizedSum;
                 }
-            }
+                memcpy(histogramData, originalData, 40*20);
+            }, 100000);
+
+
+            LWSBenchBlock("vDSP Division with malloc in benchmark          ", ^{
+                double *resampled = malloc(40 * 20 * sizeof(double));
+                const double divisor = sampleCount;
+                vDSP_vsdivD(histogramData, 1, &divisor, resampled, 1, 40*20);
+                memcpy(histogramData, originalData, 40*20);
+                free(resampled);
+            }, 100000);
+
+            double *resampled = malloc(40 * 20 * sizeof(double));
+            LWSBenchBlock("vDSP Division with malloc removed from benchmark", ^{
+                const double divisor = sampleCount;
+                vDSP_vsdivD(histogramData, 1, &divisor, resampled, 1, 40*20);
+                memcpy(histogramData, originalData, 40*20);
+            }, 100000);
+
+            resampled = malloc(40 * 20 * sizeof(double));
+            const double divisor = sampleCount;
+            vDSP_vsdivD(histogramData, 1, &divisor, resampled, 1, 40*20);
+            memcpy(histogramData, resampled, 40*20);
+
+            free(resampled);
 
             [aTuneView setHistogramData:histogramData];
             [self keepHistogramData:histogramData forItem:item];
