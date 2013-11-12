@@ -14,8 +14,8 @@
 @interface RootViewController ()
 
 @property (nonatomic, strong) NSMutableArray        *tuneViews;
-@property (nonatomic, strong) UIButton              *importButton;
-@property (nonatomic, strong) UIButton              *visButton;
+@property (nonatomic, strong) IBOutlet UIButton     *importButton;
+@property (nonatomic, strong) IBOutlet UIButton     *visButton;
 
 @property (nonatomic, strong) AVPlayer              *player;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -40,10 +40,10 @@
 
         // enable visualisations per default
         // speedup goes down to 5.15 (thank you, glowing shadow of awesome!) from 9.0 (measured on iPad 1)
-        self.visEnabled         = YES;
-        self.fileManager        = [NSFileManager defaultManager];
+        self.visEnabled     = YES;
+        self.fileManager    = [NSFileManager defaultManager];
 
-        self.operationQueue     = [NSOperationQueue new];
+        self.operationQueue = [NSOperationQueue new];
         [self.operationQueue addObserver:self forKeyPath:@"operationCount" options:0 context:NULL];
 
         // only create this once!
@@ -101,7 +101,6 @@
     [self updatePlaybackButtons];
 
     NSString    *uniqueFileName = [NSString stringWithFormat:@"%@-%@-%@.histogram", artist, album, title];
-
     NSString    *path           = [NSString stringWithFormat:@"%@/%@", documentsDirectory, uniqueFileName];
 
     // add new TuneView
@@ -113,6 +112,7 @@
     [self.tuneViews addObject:aTuneView];
     [self.scrollView addSubview:aTuneView];
     [self.scrollView setContentSize:CGSizeMake(self.scrollView.frame.size.width, 100 + [self.tuneViews count] * 220)];
+//    [aTuneView enableShadows:NO];
 
     if ([self.fileManager fileExistsAtPath:path]) {
         NSLog(@"file %@ exists", path);
@@ -176,12 +176,11 @@
 
 
         void (^sampleBlock) (void) = ^{
-
             DSPDoubleSplitComplex   complexData;
 
-            double                  *histogramData = calloc(40 * 20, sizeof(double));
+            double                  *histogramData  = calloc(40 * 20, sizeof(double));
 
-            int sampleCount = 0;
+            int                     sampleCount     = 0;
 
             // log2 table for bucketing frequencies
             int     freqToBand[8192];
@@ -198,7 +197,7 @@
             double  fillWith        = 1.0;
 
             int     len             = 8192;
-
+            int     log2Len         = log2(len);
             double  real[len] __attribute__((aligned(16)));
             double  realScaled[len] __attribute__((aligned(16)));
             double  imag[len] __attribute__((aligned(16)));
@@ -236,7 +235,6 @@
                     complexData.imagp   = imag;
 
                     //scaling
-
                     vDSP_vsmulD(real, 1, &scaleSamples, realScaled, 1, len);
                     if (self.visEnabled) {
                         [aTuneView setPCMData:realScaled];
@@ -246,8 +244,9 @@
                     vDSP_vmulD(realScaled, 1, hamm, 1, complexData.realp, 1, len);
 
                     // FFT
-                    vDSP_fft_zipD(self.mFFT, &complexData, 1, (int)log2((double)len), kFFTDirection_Forward);
+                    vDSP_fft_zipD(self.mFFT, &complexData, 1, log2Len, kFFTDirection_Forward);
 
+                    // absolute values of complex vectors
                     vDSP_zvabsD(&complexData, 1, real, 1, len);
 
                     // just add one to the real vector, so we don't run into problems with the dB-conversion
@@ -283,9 +282,9 @@
                     CFRelease(blockBuffer);
                     CFRelease(sampleBuffer);
 
-                    if ((sampleCount % 20) == 0) {
+                    if ((sampleCount % 100) == 0) {
                         dispatch_async(dispatch_get_main_queue(), ^{
-                            [aTuneView updateProgress];
+                            [aTuneView updateProgress:100];
                         });
                     }
                 }
@@ -302,7 +301,7 @@
             [self keepHistogramData:histogramData forItem:item];
 
             free(histogramData);
-            
+
             dispatch_async(dispatch_get_main_queue(), ^{
                 [aTuneView drawHistogram];
             });
@@ -375,7 +374,9 @@
         makeItSo = @selector(enablePlaybackButton);
     }
 
-    [self.tuneViews makeObjectsPerformSelector:makeItSo];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tuneViews makeObjectsPerformSelector:makeItSo];
+    });
 }
 
 - (void)keepHistogramData:(double *)data forItem:(MPMediaItem *)item {

@@ -12,8 +12,6 @@
 @implementation PCMView {
     double * waveform;
     double * spectrum;
-
-    bool once;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -30,7 +28,7 @@
             spectrum[i] = 0.0;
         }
         
-        once = NO;
+        self.shadowsEnabled = YES;
     }
     return self;
 }
@@ -61,13 +59,17 @@
     CGContextAddPath(ctx, path);
     CGContextSetLineWidth(ctx, 0.5);
     CGContextSetStrokeColorWithColor(ctx, [UIColor whiteColor].CGColor);
-    CGContextSetShadowWithColor(ctx, CGSizeMake(0, 0), 4, [UIColor whiteColor].CGColor);
+    if (_shadowsEnabled) {
+        CGContextSetShadowWithColor(ctx, CGSizeMake(0, 0), 4, [UIColor whiteColor].CGColor);
+    }
     CGContextStrokePath(ctx);
     
     
     CGContextSetFillColorWithColor(ctx, [UIColor whiteColor].CGColor);
 
-    CGContextSetShadowWithColor(ctx, CGSizeMake(0, 0), 10, [UIColor whiteColor].CGColor);
+    if (_shadowsEnabled) {
+        CGContextSetShadowWithColor(ctx, CGSizeMake(0, 0), 10, [UIColor whiteColor].CGColor);
+    }
 
     for (int sample = 0; sample < 4096; sample += 64) {
 		double level = 0;

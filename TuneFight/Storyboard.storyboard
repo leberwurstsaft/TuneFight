@@ -39,11 +39,11 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSU-eh-yEO">
-                                        <rect key="frame" x="0.0" y="170" width="214" height="168"/>
+                                        <rect key="frame" x="0.0" y="170" width="168" height="168"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="Button" image="PCM.png">
+                                        <state key="normal" image="PCM.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -69,8 +69,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="buttonContainerView" destination="8mg-qn-ZnJ" id="1GF-LX-n3F"/>
+                        <outlet property="importButton" destination="njz-yZ-jxG" id="8pC-3L-eAN"/>
                         <outlet property="scrollView" destination="7FH-u0-SD4" id="5BU-9T-bb5"/>
+                        <outlet property="visButton" destination="FSU-eh-yEO" id="X4L-9H-p6U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JqW-HU-rKL" userLabel="First Responder" sceneMemberID="firstResponder"/>

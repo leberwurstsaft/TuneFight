@@ -101,6 +101,10 @@
     [pcmView setSpectrum:data];
 }
 
+- (void)enableShadows:(BOOL)enable {
+    pcmView.shadowsEnabled = enable;
+}
+
 - (void)drawHistogram {
     [pcmView removeFromSuperview];
     [self addSubview:histogramView];
@@ -124,8 +128,8 @@
     //    NSLog(@"Artist: %@",[item valueForProperty: MPMediaItemPropertyArtwork]);
 }
 
-- (void)updateProgress {
-    currentFrames += 20;
+- (void)updateProgress:(NSInteger)frames {
+    currentFrames += frames;
     [timeToConvert setFrame: CGRectMake(timeToConvert.frame.origin.x, timeToConvert.frame.origin.y, (1 - (currentFrames/totalFrames)) * 180 , timeToConvert.frame.size.height)];
 }
 

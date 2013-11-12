@@ -36,9 +36,10 @@
 - (void)drawHistogram;
 - (void)drawPCM;
 - (void)showMetadata;
-- (void)updateProgress;
+- (void)updateProgress:(NSInteger)frames;
 
 - (void)disablePlaybackButton;
 - (void)enablePlaybackButton;
+- (void)enableShadows:(BOOL)enable;
 
 @end

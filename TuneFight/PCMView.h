@@ -11,6 +11,8 @@
 
 @interface PCMView : UIView
 
+@property (nonatomic) BOOL shadowsEnabled;
+
 - (void)setWaveform:(double *)data;
 - (void)setSpectrum:(double *)data;
 
