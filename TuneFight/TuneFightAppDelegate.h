@@ -13,6 +13,5 @@
 @interface TuneFightAppDelegate : NSObject <UIApplicationDelegate>
 
 @property (nonatomic, strong)  UIWindow *window;
-@property (nonatomic, strong)  RootViewController *viewController;
 
 @end

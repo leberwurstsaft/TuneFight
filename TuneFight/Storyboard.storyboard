@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="nUh-wq-nTn">
+    <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="0f0-oX-ZYd">
+            <objects>
+                <viewController id="nUh-wq-nTn" customClass="RootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aMt-GK-tfO"/>
+                        <viewControllerLayoutGuide type="bottom" id="8xL-XG-skH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XAC-WY-FSL">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7FH-u0-SD4">
+                                <rect key="frame" x="168" y="0.0" width="600" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8mg-qn-ZnJ">
+                                <rect key="frame" x="0.0" y="0.0" width="168" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njz-yZ-jxG">
+                                        <rect key="frame" x="0.0" y="0.0" width="168" height="168"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="80"/>
+                                        <state key="normal" title="+">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="importTuneFromLibrary" destination="nUh-wq-nTn" eventType="touchUpInside" id="M0M-r6-evf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSU-eh-yEO">
+                                        <rect key="frame" x="0.0" y="170" width="214" height="168"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Button" image="PCM.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toggleVisualizations" destination="nUh-wq-nTn" eventType="touchUpInside" id="hOA-3Y-RFc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.75070312500000003" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="SWb-gS-BPb"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8mg-qn-ZnJ" firstAttribute="top" secondItem="XAC-WY-FSL" secondAttribute="top" id="1uf-YS-u8g"/>
+                            <constraint firstItem="7FH-u0-SD4" firstAttribute="top" secondItem="XAC-WY-FSL" secondAttribute="top" id="2pc-VI-Vx5"/>
+                            <constraint firstAttribute="trailing" secondItem="7FH-u0-SD4" secondAttribute="trailing" id="9Lc-1y-CXd"/>
+                            <constraint firstItem="7FH-u0-SD4" firstAttribute="leading" secondItem="8mg-qn-ZnJ" secondAttribute="trailing" id="A1A-lC-zBM"/>
+                            <constraint firstAttribute="bottom" secondItem="7FH-u0-SD4" secondAttribute="bottom" id="B0a-h8-Wk6"/>
+                            <constraint firstItem="8mg-qn-ZnJ" firstAttribute="leading" secondItem="XAC-WY-FSL" secondAttribute="leading" id="EGO-ZM-BLE"/>
+                            <constraint firstAttribute="bottom" secondItem="8mg-qn-ZnJ" secondAttribute="bottom" id="gyK-cS-wek"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buttonContainerView" destination="8mg-qn-ZnJ" id="1GF-LX-n3F"/>
+                        <outlet property="scrollView" destination="7FH-u0-SD4" id="5BU-9T-bb5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JqW-HU-rKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="426" y="97"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="PCM.png" width="168" height="168"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar" statusBarStyle="lightContent"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

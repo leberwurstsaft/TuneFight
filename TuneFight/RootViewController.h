@@ -17,9 +17,9 @@
 @property (readonly) BOOL visEnabled;
 
 - (BOOL)exportItem:(MPMediaItem *)item;
-- (void)importTuneFromLibrary;
+- (IBAction)importTuneFromLibrary;
 - (void)playMPItem:(MPMediaItem *)item;
-- (void)toggleVisualizations;
+- (IBAction)toggleVisualizations;
 - (void)updatePlaybackButtons;
 - (void)keepHistogramData:(double *)data forItem:(MPMediaItem *)item;
 

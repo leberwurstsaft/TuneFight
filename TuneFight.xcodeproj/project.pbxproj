@@ -18,6 +18,7 @@
 		734CC16A12E7323200E6DF53 /* PCM.png in Resources */ = {isa = PBXBuildFile; fileRef = 734CC16812E7323200E6DF53 /* PCM.png */; };
 		734CC16C12E7343200E6DF53 /* PCM_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 734CC16B12E7343200E6DF53 /* PCM_off.png */; };
 		7376386712E26516009A3A5D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7376386612E26516009A3A5D /* Accelerate.framework */; };
+		73B3BA1018326C4400184127 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B3BA0F18326C4400184127 /* Storyboard.storyboard */; };
 		73B783FC12E10C6B00B313C3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B783FB12E10C6B00B313C3 /* CoreMedia.framework */; };
 		73B783FE12E10C6B00B313C3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B783FD12E10C6B00B313C3 /* MediaPlayer.framework */; };
 		73B7840812E10C9900B313C3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73B7840712E10C9900B313C3 /* AVFoundation.framework */; };
@@ -44,6 +45,7 @@
 		734CC16812E7323200E6DF53 /* PCM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PCM.png; sourceTree = "<group>"; };
 		734CC16B12E7343200E6DF53 /* PCM_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PCM_off.png; sourceTree = "<group>"; };
 		7376386612E26516009A3A5D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		73B3BA0F18326C4400184127 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		73B783FB12E10C6B00B313C3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		73B783FD12E10C6B00B313C3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		73B7840712E10C9900B313C3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -112,6 +114,7 @@
 				7338D2E312E0FE5300F10429 /* TuneFightAppDelegate.m */,
 				7338D2FB12E100EC00F10429 /* RootViewController.h */,
 				7338D2FC12E100EC00F10429 /* RootViewController.m */,
+				73B3BA0F18326C4400184127 /* Storyboard.storyboard */,
 				7338D2FE12E1038500F10429 /* TuneView.h */,
 				7338D2FF12E1038500F10429 /* TuneView.m */,
 				73DB58FB12E3167800462828 /* HistogramView.h */,
@@ -163,6 +166,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				TargetAttributes = {
+					7338D2CE12E0FE5300F10429 = {
+						DevelopmentTeam = 9D4BRJWWWC;
+					};
+				};
 			};
 			buildConfigurationList = 7338D2C912E0FE5300F10429 /* Build configuration list for PBXProject "TuneFight" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -187,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7338D2DE12E0FE5300F10429 /* InfoPlist.strings in Resources */,
+				73B3BA1018326C4400184127 /* Storyboard.storyboard in Resources */,
 				734CC16A12E7323200E6DF53 /* PCM.png in Resources */,
 				734CC16C12E7343200E6DF53 /* PCM_off.png in Resources */,
 			);
@@ -258,6 +267,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -279,6 +289,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
