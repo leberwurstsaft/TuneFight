@@ -1,7 +1,7 @@
 TuneFight
 =========
 
-Creates histograms of music as described in the paper here (http://subs.emis.de/LNI/Proceedings/Proceedings26/article635.html)
+Little iPad App that creates histograms of music as described in the paper here (http://subs.emis.de/LNI/Proceedings/Proceedings26/article635.html)
 
 
 Also serves as an example project to show off some of Apple's `Accelerate.framework`.
