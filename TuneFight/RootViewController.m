@@ -291,11 +291,11 @@
                 }
             }
 
+            // normalize by sample count
             int count = 40*20;
             int bytes = 40 * 20 * sizeof(double);
-            // normalize by sample count
             double *originalData = malloc(bytes);
-            memcpy(originalData, histogramData, count);
+            memcpy(originalData, histogramData, bytes);
 
             LWSBenchBlock("for loop Division                               ", ^{
                 for (int pos = 0; pos < count; pos++) {
@@ -332,6 +332,7 @@
             [self keepHistogramData:histogramData forItem:item];
 
             free(histogramData);
+            free(originalData);
 
             dispatch_async(dispatch_get_main_queue(), ^{
                 [aTuneView drawHistogram];
